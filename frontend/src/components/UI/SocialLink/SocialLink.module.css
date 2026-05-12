@@ -1,0 +1,16 @@
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    transition: all 0.25s ease;
+}
+
+
+.link:hover {
+    transform: translateY(-2px);
+}

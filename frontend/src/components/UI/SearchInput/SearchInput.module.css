@@ -1,0 +1,41 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 280px;
+}
+
+.icon {
+    position: absolute;
+    left: 14px;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+
+.input {
+    width: 100%;
+    background: var(--control-bg);
+    border: 1px solid var(--control-border);
+    border-radius: 12px;
+    padding: 10px 16px 10px 44px;
+    color: var(--text-main);
+    outline: none;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+    color: var(--text-muted);
+}
+
+.input:focus {
+    background: var(--card-bg);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+.wrapper:focus-within .icon {
+    color: var(--accent);
+}

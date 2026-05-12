@@ -1,0 +1,50 @@
+.switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.track {
+    position: absolute;
+    inset: 0;
+    background: var(--control-bg);
+    border-radius: 50px;
+    border: 1px solid var(--control-border);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .track {
+    background: var(--control-bg-active);
+    border-color: var(--accent);
+}
+
+.thumb {
+    --thumb-size: 22px;
+
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    transform: translateY(-50%);
+    background: var(--control-inner);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumbDark {
+    transform: translate(24px, -50%);
+}
+
+.icon {
+    color: var(--control-icon);
+}

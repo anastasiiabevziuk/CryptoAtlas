@@ -1,0 +1,44 @@
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    transition: opacity 0.25s ease;
+}
+
+.logo:hover {
+    opacity: 0.85;
+}
+
+
+.icon {
+    color: var(--accent);
+    transition: transform 0.25s ease;
+}
+
+.logo:hover .icon {
+    transform: scale(1.1);
+}
+
+
+.text {
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.text span {
+    color: var(--accent);
+}
+
+
+.logo:hover .text {
+    transform: translateX(2px);
+    opacity: 0.9;
+}

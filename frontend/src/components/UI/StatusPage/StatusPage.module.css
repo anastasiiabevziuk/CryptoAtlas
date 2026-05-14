@@ -1,0 +1,52 @@
+.container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-main);
+}
+
+.content {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.errorCode {
+    font-size: clamp(8rem, 25vw, 12rem);
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+    background: linear-gradient(180deg, var(--text-main) 30%, rgba(255, 255, 255, 0.2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    opacity: 1;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.divider {
+    width: 80px;
+    height: 3px;
+    background-color: var(--text-main);
+    margin: 24px 0;
+    opacity: 0.4;
+    border-radius: 2px;
+}
+
+.message {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}

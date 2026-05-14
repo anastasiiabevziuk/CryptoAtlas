@@ -1,0 +1,29 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    font-family: inherit;
+}
+
+.outline {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+.outline:hover {
+    background-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}

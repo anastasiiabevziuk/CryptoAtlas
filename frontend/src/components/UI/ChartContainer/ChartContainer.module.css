@@ -1,0 +1,33 @@
+.wrapper {
+    background: #05050812;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.9em;
+    padding: 24px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.content {
+    margin-top: 24px;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}

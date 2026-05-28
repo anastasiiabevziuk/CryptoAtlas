@@ -1,0 +1,23 @@
+.legend {
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--control-bg);
+    width: fit-content;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--item-gap);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    gap: 8px;
+}
+
+.item div {
+    border-radius: 4px;
+}

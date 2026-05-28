@@ -1,3 +1,16 @@
 .main_content {
     margin: 0.7em;
 }
+
+
+.tooltip {
+    position: absolute;
+    pointer-events: none;
+    padding: 6px 10px;
+    background: var(--control-bg);
+    border-radius: 6px;
+    font-size: 12px;
+    z-index: 9999;
+    transform: translate(8px, calc(-100% - 8px));
+    transition: opacity 0.15s ease;
+}

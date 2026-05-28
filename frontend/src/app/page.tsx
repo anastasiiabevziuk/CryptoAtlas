@@ -8,8 +8,8 @@ export default function Home() {
         <section>
 
           <ChartContainer
-            title="Global Crypto Adoption"
-            subtitle="Hover over countries to see market activity"
+            title="Global Crypto Regulatory Landscape"
+            subtitle="A visual analysis of cryptocurrency legal status by country, ranging from full legal tender to complete prohibition"
           >
             <CryptoMap />
           </ChartContainer>

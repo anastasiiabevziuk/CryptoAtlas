@@ -3,21 +3,28 @@
     border-radius: 6px;
     background: var(--control-bg);
     width: fit-content;
+    font-size: 12px;
+}
+
+.title {
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
 .list {
     display: flex;
     flex-direction: column;
-    gap: var(--item-gap);
+    gap: 6px;
 }
 
 .item {
     display: flex;
     align-items: center;
-    border-radius: 6px;
     gap: 8px;
 }
 
-.item div {
+.marker {
+    width: 12px;
+    height: 12px;
     border-radius: 4px;
 }

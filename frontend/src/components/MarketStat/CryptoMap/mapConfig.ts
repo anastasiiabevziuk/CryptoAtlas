@@ -1,10 +1,31 @@
-export const MAP_CONFIG = {
+export type CryptoStatusType =
+    | "Legal Tender"
+    | "Legal"
+    | "Restricted"
+    | "Banking ban"
+    | "Illegal"
+    | "No data";
+
+interface MapConfig {
+    width: number;
+    height: number;
+    legend: {
+        title: string;
+    };
+    scoreMap: Record<CryptoStatusType, number>;
+    colors: {
+        fill: string;
+        hover: string;
+        stroke: string;
+        status: Record<CryptoStatusType, string>;
+    };
+}
+
+export const MAP_CONFIG: MapConfig = {
     width: 900,
     height: 400,
     legend: {
         title: "Crypto Status",
-        itemGap: 6,
-        markerSize: 12
     },
     scoreMap: {
         "Legal Tender": 1.0,
@@ -27,4 +48,4 @@ export const MAP_CONFIG = {
             "No data": "#9dc3b0ff",
         }
     }
-};
+} as const;

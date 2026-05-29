@@ -2,33 +2,21 @@ import React from 'react';
 import { MAP_CONFIG } from './mapConfig';
 import styles from './MapLegend.module.css';
 
-const MapLegend = () => {
-
+const MapLegend: React.FC = () => {
     const { legend, colors } = MAP_CONFIG;
 
     return (
-        <div className={styles.legend} style={{
-            fontSize: `${legend.markerSize}px`
-        }}>
-            <div style={{
-                marginBottom: `${legend.itemGap}px`,
-            }}>
-                {legend.title}
-            </div>
+        <div className={styles.legend}>
+            <div className={styles.title}>{legend.title}</div>
 
-            <div className={styles.list} style={{
-                gap: `${legend.itemGap}px`
-            }}>
+            <div className={styles.list}>
                 {Object.entries(colors.status).map(([label, color]) => (
-                    <div className={styles.item} key={label} style={{
-                        gap: `${legend.itemGap}px`
-                    }}>
-                        <div style={{
-                            width: `${legend.markerSize}px`,
-                            height: `${legend.markerSize}px`,
-                            backgroundColor: color
-                        }} />
-                        <span>{label}</span>
+                    <div className={styles.item} key={label}>
+                        <div
+                            className={styles.marker}
+                            style={{ backgroundColor: color }}
+                        />
+                        <span className={styles.label}>{label}</span>
                     </div>
                 ))}
             </div>
@@ -37,4 +25,3 @@ const MapLegend = () => {
 };
 
 export default MapLegend;
-

@@ -1,32 +1,42 @@
 import { useState, useEffect } from 'react';
 import * as topojson from 'topojson-client';
+import type { Topology, GeometryCollection } from 'topojson-specification';
 import { MAP_CONFIG } from './mapConfig';
+import type { MapData, StatusData } from '../../../types/map';
 
 export const useMapData = () => {
-    const [geoData, setGeoData] = useState<any>(null);
+    const [geoData, setGeoData] = useState<MapData | null>(null);
 
     useEffect(() => {
         async function initMap() {
             try {
-                const topoResponse = await fetch('/data/world.json');
-                const topo = await topoResponse.json();
-                const countries = topojson.feature(topo, topo.objects.countries) as any;
+                const [topoResponse, statusResponse] = await Promise.all([
+                    fetch('/data/world.json'),
+                    fetch('/data/cryptoStatus.json')
+                ]);
 
-                countries.features = countries.features.filter(
-                    (f: any) => f.id !== '010'
-                );
+                const topo = await topoResponse.json() as Topology;
+                const statusData = await statusResponse.json() as StatusData;
 
-                const statusResponse = await fetch('/data/cryptoStatus.json');
-                const statusData = await statusResponse.json();
-                countries.features.forEach((f: any) => {
-                    const countryName = f.properties.name;
-                    const cryptoInfo = statusData[countryName];
+                const countries = topojson.feature(topo, topo.objects.countries as GeometryCollection) as unknown as MapData;
 
-                    f.properties.legality = cryptoInfo ? cryptoInfo.legality : "No data";
-                    f.properties.notes = cryptoInfo ? cryptoInfo.notes : "Information unavailable";
+                countries.features = countries.features
+                    .filter(f => f.id !== '010')
+                    .map(f => {
+                        const countryName = f.properties.name;
+                        const cryptoInfo = statusData[countryName];
 
-                    f.properties.activity = MAP_CONFIG.scoreMap[f.properties.legality as keyof typeof MAP_CONFIG.scoreMap] || 0.2;
-                });
+                        return {
+                            ...f,
+                            properties: {
+                                ...f.properties,
+                                legality: cryptoInfo?.legality ?? "No data",
+                                notes: cryptoInfo?.notes ?? "Information unavailable",
+                                activity: MAP_CONFIG.scoreMap[cryptoInfo?.legality as keyof typeof MAP_CONFIG.scoreMap] ?? 0.2
+                            }
+                        };
+                    });
+
                 setGeoData(countries);
             } catch (err) {
                 console.error('Error loading map data:', err);

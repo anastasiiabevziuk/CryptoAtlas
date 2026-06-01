@@ -1,4 +1,4 @@
-import { MAP_CONFIG } from './mapConfig';
+import { MAP_CONFIG } from '../../../config/mapConfig';
 import type { MapFeature } from '../../../types/map';
 
 export const getTooltipContent = (d: MapFeature): string => {

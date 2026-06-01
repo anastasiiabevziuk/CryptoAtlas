@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as topojson from 'topojson-client';
 import type { Topology, GeometryCollection } from 'topojson-specification';
-import { MAP_CONFIG } from './mapConfig';
+import { MAP_CONFIG } from '../../../config/mapConfig';
 import type { MapData, StatusData } from '../../../types/map';
 
 export const useMapData = () => {

@@ -4,7 +4,7 @@ import { useMapData } from './useMapData';
 import { useMapRender } from './useMapRender';
 import MapLegend from './MapLegend';
 import styles from '../../../app/page.module.css';
-import { MAP_CONFIG } from './mapConfig';
+import { MAP_CONFIG } from '../../../config/mapConfig';
 
 const CryptoMap = () => {
     const svgRef = useRef<SVGSVGElement | null>(null);

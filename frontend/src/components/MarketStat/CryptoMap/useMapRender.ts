@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import * as d3 from 'd3';
 import { getTooltipContent } from './tooltipUtils';
-import { MAP_CONFIG } from './mapConfig';
+import { MAP_CONFIG } from '../../../config/mapConfig';
 import type { MapData, MapFeature } from '../../../types/map';
 
 export const useMapRender = (

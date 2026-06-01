@@ -1,5 +1,5 @@
 import React from 'react';
-import { MAP_CONFIG } from './mapConfig';
+import { MAP_CONFIG } from '../../../config/mapConfig';
 import styles from './MapLegend.module.css';
 
 const MapLegend: React.FC = () => {

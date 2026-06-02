@@ -1,5 +1,6 @@
 import ChartContainer from '@/components/UI/ChartContainer/ChartContainer';
 import CryptoMap from '@/components/MarketStat/CryptoMap/CryptoMap';
+import MarketCapChart from '@/components/MarketStat/Charts/MarketCap/MarketCapChart';
 import styles from './page.module.css';
 export default function Home() {
   return (
@@ -17,9 +18,12 @@ export default function Home() {
 
         <aside >
 
-          <div style={{ padding: '20px', border: '1px solid var(--border-color)' }}>
-            <h3>Market Stats</h3>
-          </div>
+          <ChartContainer
+            title="Top Assets by Market Cap"
+            subtitle="A comparative view of the leading cryptocurrencies based on their total market capitalization"
+          >
+            <MarketCapChart />
+          </ChartContainer>
         </aside>
       </div>
     </main>

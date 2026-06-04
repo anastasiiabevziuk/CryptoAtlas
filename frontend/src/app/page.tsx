@@ -1,7 +1,9 @@
 import ChartContainer from '@/components/UI/ChartContainer/ChartContainer';
 import CryptoMap from '@/components/MarketStat/CryptoMap/CryptoMap';
 import MarketCapChart from '@/components/MarketStat/Charts/MarketCap/MarketCapChart';
+import FearGreedGauge from '@/components/MarketStat/Charts/FearGreed/FearGreedGauge';
 import styles from './page.module.css';
+
 export default function Home() {
   return (
     <main className={styles.main_content}>
@@ -23,6 +25,13 @@ export default function Home() {
             subtitle="A comparative view of the leading cryptocurrencies based on their total market capitalization"
           >
             <MarketCapChart />
+          </ChartContainer>
+
+          <ChartContainer
+            title="Crypto Fear & Greed Index"
+            subtitle="Track market sentiment in real-time to gauge investor psychology"
+          >
+            <FearGreedGauge />
           </ChartContainer>
         </aside>
       </div>

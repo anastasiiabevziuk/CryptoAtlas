@@ -5,6 +5,7 @@ interface MarketData {
     btcDom: number | null;
     totalCap: string | null;
     sentiment: string | null;
+    sentimentValue: number | null;
     loading: boolean;
     isError: boolean;
 }
@@ -17,6 +18,7 @@ export const useMarketData = () => {
         btcDom: null,
         totalCap: null,
         sentiment: null,
+        sentimentValue: null,
         loading: true,
         isError: false,
     });
@@ -76,6 +78,7 @@ export const useMarketData = () => {
                     btcDom: marketJson.data.market_cap_percentage.btc.toFixed(2),
                     totalCap: formatNumber(marketJson.data.total_market_cap.usd),
                     sentiment: sentimentJson.data[0].value_classification,
+                    sentimentValue: Number(sentimentJson.data[0].value),
                     loading: false,
                     isError: false,
                 };

@@ -8,7 +8,7 @@ import styles from './page.module.css';
 export default function Home() {
   return (
     <main className={styles.main_content}>
-      <div >
+      <div className={styles.grid_layout}>
         <section>
 
           <ChartContainer
@@ -19,7 +19,7 @@ export default function Home() {
           </ChartContainer>
         </section>
 
-        <aside >
+        <aside className={styles.sidebar} >
 
           <ChartContainer
             title="Top Assets by Market Cap"
@@ -28,12 +28,12 @@ export default function Home() {
             <MarketCapChart />
           </ChartContainer>
 
-          <ChartContainer
+          {/* <ChartContainer
             title="Crypto Fear & Greed Index"
             subtitle="Track market sentiment in real-time to gauge investor psychology"
           >
             <FearGreedGauge />
-          </ChartContainer>
+          </ChartContainer> */}
 
           <ChartContainer
             title="Bitcoin Transaction Volume"

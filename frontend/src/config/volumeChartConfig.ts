@@ -33,11 +33,11 @@ export const VolumeChartConfig: VolumeChartConfigType = {
     main: {
         margin: { top: 10, right: 20, bottom: 30, left: 50 },
         width: 400,
-        height: 250,
+        height: 190,
     },
     brush: {
         width: 400,
-        height: 50,
+        height: 20,
         padding: 50,
     },
     colors: {

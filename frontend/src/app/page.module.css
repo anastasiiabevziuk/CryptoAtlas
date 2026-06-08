@@ -1,4 +1,6 @@
 .main_content {
+    width: 100%;
+    padding: 20px;
     margin: 0.7em;
 }
 
@@ -24,4 +26,26 @@
 
 .mapSvg {
     width: 100%;
+}
+
+.grid_layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+@media (min-width: 1024px) {
+    .grid_layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        align-items: start;
+    }
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

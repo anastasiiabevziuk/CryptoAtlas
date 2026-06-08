@@ -2,6 +2,7 @@ import ChartContainer from '@/components/UI/ChartContainer/ChartContainer';
 import CryptoMap from '@/components/MarketStat/CryptoMap/CryptoMap';
 import MarketCapChart from '@/components/MarketStat/Charts/MarketCap/MarketCapChart';
 import FearGreedGauge from '@/components/MarketStat/Charts/FearGreed/FearGreedGauge';
+import VolumeChart from '@/components/MarketStat/Charts/TransactionVolume/VolumeChart';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -33,6 +34,14 @@ export default function Home() {
           >
             <FearGreedGauge />
           </ChartContainer>
+
+          <ChartContainer
+            title="Bitcoin Transaction Volume"
+            subtitle="Aggregated 24h trading activity across major exchanges (7-day history)"
+          >
+            <VolumeChart />
+          </ChartContainer>
+
         </aside>
       </div>
     </main>

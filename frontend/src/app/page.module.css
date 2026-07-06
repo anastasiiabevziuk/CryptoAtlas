@@ -1,10 +1,11 @@
-.main_content {
+.main-content {
     width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
-
 
 .tooltip {
     position: absolute;
@@ -18,18 +19,31 @@
     transition: opacity 0.15s ease;
 }
 
+
 .mapContainer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    aspect-ratio: 2.25 / 1;
 }
 
 .mapSvg {
+    display: block;
     width: 100%;
+    height: auto;
 }
 
 .grid_layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.sidebar {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -41,12 +55,28 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: 20px;
-        align-items: start;
+        width: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 20px;
     }
 }
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+@media (max-width: 600px) {
+    .mapContainer {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+
+    .grid_layout {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 10px;
+        box-sizing: border-box;
+        min-width: 0;
+    }
+
 }

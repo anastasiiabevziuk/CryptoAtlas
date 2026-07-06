@@ -9,12 +9,15 @@ export const useMapRender = (
     geoData: MapData | null,
     tooltipRef: React.RefObject<HTMLDivElement | null>
 ) => {
+
     useEffect(() => {
         if (!svgRef.current || !geoData || !tooltipRef.current) return;
 
         const svg = d3.select(svgRef.current);
-        const tooltip = d3.select(tooltipRef.current);
 
+        svg.attr('viewBox', `0 0 ${MAP_CONFIG.width} ${MAP_CONFIG.height}`)
+
+        const tooltip = d3.select(tooltipRef.current);
         let g = svg.select<SVGGElement>('.map-group');
         if (g.empty()) {
             g = svg.append('g').attr('class', 'map-group');

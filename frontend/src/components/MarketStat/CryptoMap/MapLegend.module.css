@@ -28,3 +28,20 @@
     height: 12px;
     border-radius: 4px;
 }
+
+@media (max-width: 600px) {
+
+    .legend {
+        width: 100% !important;
+        display: grid !important;
+        gap: 8px;
+        box-sizing: border-box;
+    }
+
+
+    .list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+}

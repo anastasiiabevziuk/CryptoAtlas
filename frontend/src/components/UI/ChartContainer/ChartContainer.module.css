@@ -5,8 +5,14 @@
     padding: 24px;
     width: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
+    overflow-y: visible !important;
+    overflow-x: hidden;
 }
+
+
 
 .title {
     font-size: 1.25rem;
@@ -19,14 +25,24 @@
 .subtitle {
     font-size: 0.875rem;
     color: var(--text-muted);
-    margin-top: 4px;
+    margin: 7px;
 }
 
 .content {
     width: 100%;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
+    height: auto !important;
+    min-height: 0;
+}
+
+
+@media (max-width: 600px) {
+    .wrapper {
+        width: 100% !important;
+    }
+
+    .content {
+        align-items: stretch !important;
+
+    }
 }

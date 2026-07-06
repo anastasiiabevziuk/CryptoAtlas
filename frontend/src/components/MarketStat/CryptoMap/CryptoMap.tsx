@@ -20,7 +20,6 @@ const CryptoMap = () => {
             <svg
                 ref={svgRef}
                 className={styles.mapSvg}
-                height={MAP_CONFIG.height}
                 viewBox={`0 0 ${MAP_CONFIG.width} ${MAP_CONFIG.height}`}
             />
             <div ref={tooltipRef} className={styles.tooltip} style={{ opacity: 0, position: 'absolute' }} />

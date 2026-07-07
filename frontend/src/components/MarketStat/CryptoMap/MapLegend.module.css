@@ -1,14 +1,19 @@
 .legend {
-    padding: 12px;
-    border-radius: 6px;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
     background: var(--control-bg);
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    pointer-events: auto;
     width: fit-content;
-    font-size: 12px;
 }
 
 .title {
     margin-bottom: 6px;
     font-weight: 600;
+    color: var(--text-main);
 }
 
 .list {
@@ -27,17 +32,17 @@
     width: 12px;
     height: 12px;
     border-radius: 4px;
+    flex-shrink: 0;
+
 }
 
-@media (max-width: 600px) {
 
+@media (max-width: 600px) {
     .legend {
         width: 100% !important;
-        display: grid !important;
-        gap: 8px;
         box-sizing: border-box;
-    }
 
+    }
 
     .list {
         display: grid;

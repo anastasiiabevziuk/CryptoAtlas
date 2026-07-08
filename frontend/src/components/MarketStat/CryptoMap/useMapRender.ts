@@ -15,7 +15,15 @@ export const useMapRender = (
 
         const svg = d3.select(svgRef.current);
 
-        svg.attr('viewBox', `0 0 ${MAP_CONFIG.width} ${MAP_CONFIG.height}`)
+        const zoom = d3.zoom<SVGSVGElement, unknown>()
+            .scaleExtent([1, 8])
+            .on('zoom', (event) => {
+                g.attr('transform', event.transform);
+            });
+
+        svg.call(zoom);
+
+        svg.attr('viewBox', `0 0 ${MAP_CONFIG.width} ${MAP_CONFIG.height}`);
 
         const tooltip = d3.select(tooltipRef.current);
         let g = svg.select<SVGGElement>('.map-group');
@@ -53,6 +61,8 @@ export const useMapRender = (
                     .style('left', `${event.offsetX + 15}px`)
                     .style('top', `${event.offsetY + 15}px`);
             })
+
+
             .on('mouseleave', () => {
                 tooltip.style('opacity', 0);
             });

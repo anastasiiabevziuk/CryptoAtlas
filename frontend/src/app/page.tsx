@@ -5,6 +5,7 @@ import FearGreedGauge from '@/components/MarketStat/Charts/FearGreed/FearGreedGa
 import VolumeChart from '@/components/MarketStat/Charts/TransactionVolume/VolumeChart';
 import styles from './page.module.css';
 
+
 export default function Home() {
   return (
     <main className={styles.main_content}>
@@ -12,7 +13,14 @@ export default function Home() {
         <section>
 
           <ChartContainer
-            title="Global Crypto Regulatory Landscape"
+            title={
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                Global Crypto Regulatory Landscape
+                <span className={styles.zoom_hint}>
+                  Scroll to zoom
+                </span>
+              </div>
+            }
             subtitle="A visual analysis of cryptocurrency legal status by country, ranging from full legal tender to complete prohibition"
           >
             <CryptoMap />

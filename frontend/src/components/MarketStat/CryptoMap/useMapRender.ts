@@ -15,13 +15,16 @@ export const useMapRender = (
 
         const svg = d3.select(svgRef.current);
 
+
         const zoom = d3.zoom<SVGSVGElement, unknown>()
             .scaleExtent([1, 8])
+            .on('start', () => tooltip.style('opacity', 0))
             .on('zoom', (event) => {
                 g.attr('transform', event.transform);
             });
 
-        svg.call(zoom);
+        svg.call(zoom)
+            .on('touchstart', () => tooltip.style('opacity', 0));
 
         svg.attr('viewBox', `0 0 ${MAP_CONFIG.width} ${MAP_CONFIG.height}`);
 

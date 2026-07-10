@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ChartContainer.module.css';
 
 interface Props {
-    title: string;
+    title: React.ReactNode;
     subtitle?: string;
     children: React.ReactNode;
 }

@@ -18,7 +18,7 @@ const MarketCapChart = () => {
     }, [data]);
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', margin: "0 auto" }}>
             <svg
                 ref={svgRef}
                 width={CHARTS_CONFIG.marketCap.width}

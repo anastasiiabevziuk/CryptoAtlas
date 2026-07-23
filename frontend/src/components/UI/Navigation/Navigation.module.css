@@ -1,0 +1,31 @@
+.navTabs {
+    display: flex;
+    align-items: center;
+    background: var(--control-bg);
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    gap: 4px;
+}
+
+.tabLink {
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tabLink:hover {
+    color: var(--text-main);
+}
+
+.tabLink.active {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+}

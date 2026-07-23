@@ -13,7 +13,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 }) => {
     return (
         <div className={`${styles.wrapper} ${className || ''}`}>
-            <Search size={18} className={styles.icon} />
+            <Search size={16} className={styles.icon} />
 
             <input
                 type="text"

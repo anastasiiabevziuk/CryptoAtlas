@@ -1,0 +1,156 @@
+.graphContainer {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    height: 520px;
+    background-color: var(--bg-main);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.controlsPanel {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 220px;
+    background: var(--card-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px;
+    color: var(--text-main);
+    font-family: inherit;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.searchBox {
+    margin-bottom: 10px;
+}
+
+.section {
+    margin-bottom: 10px;
+}
+
+.section h4 {
+    color: var(--text-main);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--control-border);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.tag:hover {
+    background: var(--control-bg-active);
+}
+
+.inactiveTag {
+    opacity: 0.4;
+}
+
+.tagDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+.linkTypesList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.linkTypeItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.linkDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.linkText {
+    font-size: 0.75rem;
+    color: var(--text-main);
+    opacity: 0.8;
+    text-transform: capitalize;
+}
+
+
+.footerSection {
+    margin-bottom: 0 !important;
+    border-top: 1px solid var(--border-color);
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+}
+
+.subText {
+    font-size: 0.75rem;
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+
+@media (max-width: 768px) {
+    .graphContainer {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .graphContainer>div:first-child {
+        position: relative !important;
+        height: 380px !important;
+        width: 100% !important;
+    }
+
+    .controlsPanel {
+        position: static !important;
+        width: 100% !important;
+        max-width: none !important;
+        border-radius: 0 0 16px 16px;
+        border-top: 1px solid var(--border-color);
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        box-shadow: none;
+        background: var(--card-bg);
+    }
+}

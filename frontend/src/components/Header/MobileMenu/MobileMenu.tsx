@@ -6,6 +6,7 @@ import MarketStat from '../../UI/MarketStat/MarketStat';
 import ThemeToggle from '../../UI/ThemeToggle/ThemeToggle';
 import Logo from '../../UI/Logo/Logo';
 import styles from './MobileMenu.module.css';
+import Navigation from '@/components/UI/Navigation/Navigation';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -48,6 +49,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, marketData }) 
 
                 <div className={styles.scrollContent}>
                     <div className={styles.section}>
+                        <div className={styles.mobileNav}>
+                            <Navigation />
+                        </div>
+
                         <h3 className={styles.sectionLabel}>Market Stats</h3>
 
                         <div className={styles.statsStack}>

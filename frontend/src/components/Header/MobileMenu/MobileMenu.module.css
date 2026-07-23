@@ -80,3 +80,25 @@
     display: flex;
     justify-content: space-around;
 }
+
+.mobileNav {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.mobileNav>nav {
+    display: flex !important;
+    width: 100% !important;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.mobileNav>nav>a {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    text-decoration: none;
+    white-space: nowrap;
+}

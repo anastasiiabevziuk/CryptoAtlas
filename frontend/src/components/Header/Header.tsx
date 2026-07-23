@@ -4,14 +4,17 @@ import React, { useMemo, useState } from 'react';
 import { Menu } from 'lucide-react';
 import Logo from '../UI/Logo/Logo';
 import MarketStat from '../UI/MarketStat/MarketStat';
-import SearchInput from '../UI/SearchInput/SearchInput';
 import ThemeToggle from '../UI/ThemeToggle/ThemeToggle';
 import MobileMenu from './MobileMenu/MobileMenu';
 import { useMarketData } from '@/hooks/useMarketData';
+
 import styles from './Header.module.css';
+import Navigation from '../UI/Navigation/Navigation';
+
 
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
     const marketData = useMarketData();
     const { btcDom, totalCap, sentiment, loading, isError } = marketData;
@@ -29,6 +32,10 @@ const Header: React.FC = () => {
             <div className={styles.container}>
                 <div className={styles.leftGroup}>
                     <Logo />
+
+                    <div className={styles.desktopNav}>
+                        <Navigation />
+                    </div>
 
 
                     <nav className={`${styles.marketStats} ${styles.desktopStats}`}>
@@ -51,7 +58,6 @@ const Header: React.FC = () => {
                 <div className={styles.rightGroup}>
 
                     <div className={styles.desktopControls}>
-                        <SearchInput placeholder="Quick search..." />
                         <div className={styles.divider}></div>
                         <ThemeToggle />
                     </div>

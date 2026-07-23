@@ -1,0 +1,35 @@
+{
+  "nodes": [
+    { "id": "BTC", "name": "Bitcoin", "group": "crypto", "val": 12 },
+    { "id": "ETH", "name": "Ethereum", "group": "crypto", "val": 10 },
+    { "id": "USDT", "name": "Tether", "group": "crypto", "val": 8 },
+    { "id": "SOL", "name": "Solana", "group": "crypto", "val": 7 },
+    { "id": "ADA", "name": "Cardano", "group": "crypto", "val": 5 },
+    { "id": "XRP", "name": "Ripple", "group": "crypto", "val": 6 },
+    { "id": "UNI", "name": "Uniswap", "group": "crypto", "val": 6 },
+    { "id": "LIDO", "name": "Lido Finance", "group": "crypto", "val": 7 },
+    { "id": "LINK", "name": "Chainlink", "group": "crypto", "val": 5 },
+    { "id": "SEC", "name": "US SEC", "group": "regulator", "val": 6 },
+    { "id": "CFTC", "name": "US CFTC", "group": "regulator", "val": 5 },
+    { "id": "CHINA", "name": "China", "group": "regulation", "val": 5 },
+    { "id": "EU_MICA", "name": "EU MiCA", "group": "regulation", "val": 5 }
+  ],
+  "links": [
+    { "source": "SEC", "target": "BTC", "type": "regulation" },
+    { "source": "SEC", "target": "ETH", "type": "regulation" },
+    { "source": "SEC", "target": "XRP", "type": "regulation" },
+    { "source": "CFTC", "target": "ETH", "type": "regulation" },
+    { "source": "CHINA", "target": "BTC", "type": "ban" },
+    { "source": "EU_MICA", "target": "USDT", "type": "regulation" },
+    { "source": "ETH", "target": "BTC", "type": "liquidity" },
+    { "source": "USDT", "target": "ETH", "type": "liquidity" },
+    { "source": "USDT", "target": "SOL", "type": "liquidity" },
+    { "source": "SOL", "target": "ETH", "type": "liquidity" },
+    { "source": "ADA", "target": "BTC", "type": "liquidity" },
+    { "source": "XRP", "target": "ETH", "type": "liquidity" },
+    { "source": "UNI", "target": "ETH", "type": "liquidity" },
+    { "source": "LIDO", "target": "ETH", "type": "staking" },
+    { "source": "LINK", "target": "UNI", "type": "oracle" },
+    { "source": "LINK", "target": "LIDO", "type": "oracle" }
+  ]
+}

@@ -8,6 +8,7 @@ CryptoAtlas is a real-time cryptocurrency market analytics dashboard designed to
 * **Top Assets by Market Cap:** A comparative view of leading cryptocurrencies based on their total market capitalization.
 * **Fear & Greed Index:** A real-time sentiment gauge to track investor psychology.
 * **Bitcoin Transaction Volume:** A high-performance interactive volume chart built with D3.js, featuring a brush tool for custom time-range selection.
+* **Crypto Market Ecosystem Network:** An interactive graph tracking liquidity flows and regulatory pressure (SEC, CFTC, MiCA) across key cryptocurrency assets, featuring real-time node search and filter controls.
 
 ## 🛠 Tech Stack
 
@@ -16,6 +17,7 @@ CryptoAtlas is a real-time cryptocurrency market analytics dashboard designed to
 * **Styling:** CSS Modules for component-level encapsulation
 * **Data Layer:** CoinGecko API integration
 * **Language:** TypeScript for robust type safety
+* **Graph Visualization:** `react-force-graph-2d` for interactive force-directed network rendering.
 
 ## 📂 Architecture
 

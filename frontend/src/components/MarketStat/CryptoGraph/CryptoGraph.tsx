@@ -6,9 +6,9 @@ import { GraphCanvas } from './GraphCanvas';
 import { GraphControls } from './GraphControls';
 import styles from './CryptoGraph.module.css';
 
-export function CryptoGraph() {
+const CryptoGraph = () => {
     const { fgRef, graphData, searchQuery, setSearchQuery, handleResetView } = useCryptoGraph();
-
+    const { nodes, links } = graphData;
     return (
         <div className={styles.graphContainer}>
             <GraphCanvas fgRef={fgRef} graphData={graphData} />
@@ -16,8 +16,8 @@ export function CryptoGraph() {
                 searchQuery={searchQuery}
                 onSearchChange={setSearchQuery}
                 onResetView={handleResetView}
-                nodes={graphData.nodes}
-                links={graphData.links}
+                nodes={nodes}
+                links={links}
             />
         </div>
     );

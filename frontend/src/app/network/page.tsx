@@ -12,9 +12,10 @@ export default function NetworkPage() {
           <ChartContainer
             title={
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                Crypto Market Ecosystem: Regulators, Assets & Liquidity
               </div>
             }
-            subtitle="An interactive map of cryptocurrency market interconnections, tracking the impact of regulators, institutional players, and liquidity flows between key blockchain assets."
+            subtitle="An interactive graph tracking liquidity flows and regulatory pressure (SEC, CFTC, MiCA) across key cryptocurrency assets."
           >
             <CryptoGraph />
           </ChartContainer>

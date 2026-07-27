@@ -3,14 +3,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { GRAPH_CONFIG } from '@/config/graphConfig';
+import type { GraphData, GraphNode, GraphLink } from '@/types/graph';
+
 
 const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), {
     ssr: false,
 });
 
 interface GraphCanvasProps {
-    fgRef: React.RefObject<any>;
-    graphData: { nodes: any[]; links: any[] };
+    fgRef: any;
+    graphData: GraphData;
 }
 
 export const GraphCanvas: React.FC<GraphCanvasProps> = ({ fgRef, graphData }) => {
@@ -35,13 +37,13 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ fgRef, graphData }) =>
     useEffect(() => {
         if (graphData.nodes.length > 0 && fgRef.current) {
             const timer = setTimeout(() => {
-                fgRef.current.zoomToFit(400, 50);
+                fgRef.current?.zoomToFit(400, 50);
             }, 150);
             return () => clearTimeout(timer);
         }
     }, [graphData, fgRef]);
 
-    const getNodeColor = (node: any) => {
+    const getNodeColor = (node: any): string => {
         if (node.group === 'crypto') return GRAPH_CONFIG.nodeColors.crypto;
         if (node.group === 'regulator') return GRAPH_CONFIG.nodeColors.regulator;
         return GRAPH_CONFIG.nodeColors.regulation;
@@ -60,28 +62,28 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ fgRef, graphData }) =>
                 linkDirectionalArrowLength={GRAPH_CONFIG.arrowLength}
                 linkDirectionalArrowRelPos={GRAPH_CONFIG.arrowRelPos}
                 linkColor={(link: any) => {
-                    return (GRAPH_CONFIG.linkColors as Record<string, string>)[link.type] || GRAPH_CONFIG.linkColors.default;
+                    const linkType = (link as GraphLink).type;
+                    return (GRAPH_CONFIG.linkColors as Record<string, string>)[linkType] || GRAPH_CONFIG.linkColors.default;
                 }}
                 linkWidth={1}
                 backgroundColor={GRAPH_CONFIG.background}
-                nodeCanvasObject={(node: any, ctx, globalScale) => {
-                    const label = node.name;
+                nodeCanvasObject={(node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+                    const typedNode = node as GraphNode & { x: number; y: number };
+                    const label = typedNode.name;
                     const fontSize = GRAPH_CONFIG.fontSizeOffset / globalScale;
 
                     ctx.font = `${fontSize}px Inter, sans-serif`;
                     ctx.fillStyle = GRAPH_CONFIG.nodeColors.default;
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'top';
-                    ctx.fillText(label, node.x, node.y + GRAPH_CONFIG.textOffset);
+                    ctx.fillText(label, typedNode.x, typedNode.y + GRAPH_CONFIG.textOffset);
 
                     ctx.beginPath();
-                    ctx.arc(node.x, node.y, GRAPH_CONFIG.nodeSize, 0, 2 * Math.PI, false);
-                    ctx.fillStyle = getNodeColor(node);
+                    ctx.arc(typedNode.x, typedNode.y, GRAPH_CONFIG.nodeSize, 0, 2 * Math.PI, false);
+                    ctx.fillStyle = getNodeColor(typedNode);
                     ctx.fill();
                 }}
             />
         </div>
     );
 };
-
-export default GraphCanvas;

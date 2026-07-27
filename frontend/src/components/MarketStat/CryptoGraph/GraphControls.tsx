@@ -3,13 +3,14 @@ import styles from './CryptoGraph.module.css';
 import SearchInput from '@/components/UI/SearchInput/SearchInput';
 import Button from '@/components/UI/Button/Button';
 import { GRAPH_CONFIG } from '@/config/graphConfig';
+import type { GraphNode, GraphLink } from '@/types/graph';
 
 interface GraphControlsProps {
     searchQuery: string;
     onSearchChange: (query: string) => void;
     onResetView: () => void;
-    nodes?: Array<{ id: string; name: string; group: string }>;
-    links?: Array<{ source: any; target: any; type: string }>;
+    nodes?: GraphNode[];
+    links?: GraphLink[];
     onSearchSelect?: (nodeId: string) => void;
 }
 
@@ -19,7 +20,6 @@ export const GraphControls: React.FC<GraphControlsProps> = ({
     onResetView,
     nodes = [],
     links = [],
-    onSearchSelect,
 }) => {
     const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>(() => {
         const initialFilters: Record<string, boolean> = {};
@@ -52,7 +52,7 @@ export const GraphControls: React.FC<GraphControlsProps> = ({
                 <div className={styles.tagsContainer}>
                     {Object.keys(GRAPH_CONFIG.nodeColors).map(group => {
                         if (group === 'default') return null;
-                        const color = GRAPH_CONFIG.nodeColors[group as keyof typeof GRAPH_CONFIG.nodeColors];
+                        const color = (GRAPH_CONFIG.nodeColors as Record<string, string>)[group];
                         const isActive = activeFilters[group] ?? true;
 
                         return (
@@ -100,9 +100,11 @@ export const GraphControls: React.FC<GraphControlsProps> = ({
             </div>
 
             <div className={`${styles.section} ${styles.footerSection}`}>
-                <span className={styles.subText}>Nodes: {nodes?.length || 0}</span>
-                <span className={styles.subText}>Links: {links?.length || 0}</span>
+                <span className={styles.subText}>Nodes: {nodes.length}</span>
+                <span className={styles.subText}>Links: {links.length}</span>
             </div>
         </div>
     );
 };
+
+export default GraphControls;

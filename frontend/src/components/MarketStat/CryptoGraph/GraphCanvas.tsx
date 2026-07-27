@@ -37,7 +37,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ fgRef, graphData }) =>
     useEffect(() => {
         if (graphData.nodes.length > 0 && fgRef.current) {
             const timer = setTimeout(() => {
-                fgRef.current?.zoomToFit(400, 50);
+                fgRef.current?.zoomToFit(400, 45);
             }, 150);
             return () => clearTimeout(timer);
         }
